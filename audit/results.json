@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T17:48:03+0530",
+ "run_at": "2026-10-10T19:07:51+0530",
  "engines": [
   {
    "engine": "google_ai_mode",
@@ -44,7 +44,7 @@
  ],
  "summary": {
   "headline": "Four AI search engines agreed on the number for 18 of 19 everyday Indian questions. But only 6% of their 462 citations were official sources, while 32% were companies selling loans, insurance, lab tests or medicines. Google AI Overview cited a hijacked page (spam injected into a university site) as a source on 2 questions.",
-  "subline": "An official page in Google's results stated the engines' figure on 2 questions. On 4, the top official page gave a different figure. Pramaan shows its date and wording so you can see whether the page is outdated. 'Official-only' searches also surfaced 12 hijacked pages planted on institutional domains.",
+  "subline": "An official page in Google's results stated the engines' figure on 2 questions. On 4, the top official page gave a different figure. Pramaan shows its date and wording so you can see whether the page is outdated. Google's results also included 12 hijacked pages: real sites serving spam injected from another host.",
   "split": 1,
   "conflict": 4,
   "verified": 2,

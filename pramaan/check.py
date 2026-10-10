@@ -1,7 +1,7 @@
 """Ask every engine the same question and compare the numbers they give."""
 import time
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from . import claims, engines, llm, serp, sources
 
@@ -47,24 +47,43 @@ def _mix(refs):
     return {k: c.get(k, 0) for k in sources.KINDS}
 
 
-def run(question):
+def _notice(name, res, question):
+    """A small progress event for one finished call, so the UI can fill each card as its engine answers."""
+    if name == "official":
+        n = 0 if isinstance(res, Exception) else sum(
+            1 for e in engines.organic_evidence(res[0]) if e["kind"] == "official")
+        return {"type": "record", "official_pages": n}
+    a = res[2] if name == "google" and not isinstance(res, Exception) else res
+    eid = "google_ai_overview" if name == "google" else name
+    if isinstance(a, Exception):
+        return {"type": "engine", "engine": eid, "status": "error", "figure": None}
+    key = claims.extract(a["text"], question)["key"]
+    return {"type": "engine", "engine": eid, "status": a["status"], "mode": a.get("mode"),
+            "figure": claims.fmt(key["value"], key["unit"]) if key else None}
+
+
+def run(question, on_event=None):
     t0 = time.time()
     question = question.strip()
     with ThreadPoolExecutor(5) as ex:
-        f_google = ex.submit(_safe, engines.google, question)
-        f_official = ex.submit(_safe, engines.official, question)
-        f_mode = ex.submit(_safe, engines.google_ai_mode, question)
-        f_bing = ex.submit(_safe, engines.bing_copilot, question)
-        f_brave = ex.submit(_safe, engines.brave_ai_mode, question)
+        jobs = {ex.submit(_safe, fn, question): name for name, fn in [
+            ("google", engines.google), ("official", engines.official), ("google_ai_mode", engines.google_ai_mode),
+            ("bing_copilot", engines.bing_copilot), ("brave_ai_mode", engines.brave_ai_mode)]}
+        done = {}
+        for f in as_completed(jobs):
+            done[jobs[f]] = f.result()
+            if on_event:
+                on_event(_notice(jobs[f], done[jobs[f]], question))
 
-    g = f_google.result()
+    g = done["google"]
     google_data, overview = (None, engines._empty("google_ai_overview", "Google AI Overview", str(g))) \
         if isinstance(g, Exception) else (g[0], g[2])
-    off = f_official.result()
+    off = done["official"]
     official_data = None if isinstance(off, Exception) else off[0]
 
     answers = []
-    for (eid, label), res in zip(engines.ENGINES, [f_mode.result(), overview, f_bing.result(), f_brave.result()]):
+    for (eid, label), res in zip(engines.ENGINES, [done["google_ai_mode"], overview, done["bing_copilot"],
+                                                   done["brave_ai_mode"]]):
         answers.append(engines._empty(eid, label, str(res)) if isinstance(res, Exception) else res)
 
     evidence = engines.organic_evidence(official_data, google_data)
@@ -128,12 +147,14 @@ def verdict(answers, officials):
         code, title = "consensus_official", "All engines agree, and an official page states the same figure"
     elif officials:
         code, title = "consensus_conflict", "Engines agree, but the top official page states a different figure"
-        eng_date = max((a["claim"].get("date") or "" for a in numbered), default="") or None
-        if eng_date and official.get("date") and eng_date > official["date"]:
-            note = (f"The engines cite a change dated {eng_date}, after the official page ({official['date']}). "
-                    "The official page is probably outdated.")
-        elif eng_date and official.get("date") and official["date"] > eng_date:
-            note = f"The official page ({official['date']}) is newer than anything the engines cite. They may be outdated."
+        latest = max((a["claim"] for a in numbered if a["claim"].get("date")), key=lambda c: c["date"], default=None)
+        eng_date, off_date = (latest or {}).get("date"), official.get("date")
+        if eng_date and off_date and eng_date > off_date:
+            note = (f"The engines cite a change dated {latest['date_text']}, after the official page "
+                    f"({official['date_text']}). The official page is probably outdated.")
+        elif eng_date and off_date and off_date > eng_date:
+            note = (f"The official page ({official['date_text']}) is newer than anything the engines cite "
+                    f"({latest['date_text']}). The engines may be outdated.")
         else:
             note = "No dates to settle it. Read the official quote: it may be outdated or about a different case."
     else:

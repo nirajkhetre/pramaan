@@ -50,8 +50,8 @@ class Verdict(unittest.TestCase):
     def test_conflict_dates_say_which_is_stale(self):
         a = [self.ans("A", 5.5), self.ans("B", 5.5)]
         for x in a:
-            x["claim"]["date"] = "2026-10-07"
-        v = check.verdict(a, [{"value": 5.25, "unit": "%", "values": [5.25], "date": "2026-08-05", "snippet": "Repo rate kept at 5.25 per cent."}])
+            x["claim"]["date"], x["claim"]["date_text"] = "2026-10-07", "7 October 2026"
+        v = check.verdict(a, [{"value": 5.25, "unit": "%", "values": [5.25], "date": "2026-08-05", "date_text": "5 Aug 2026", "snippet": "Repo rate kept at 5.25 per cent."}])
         self.assertEqual(v["code"], "consensus_conflict")
         self.assertIn("probably outdated", v["note"])
 

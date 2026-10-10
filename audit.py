@@ -70,7 +70,7 @@ def main(fresh=False):
     subline = (f"An official page in Google's results stated the engines' figure on {verified} questions. On "
                f"{conflict}, the top official page gave a different figure. Pramaan shows its date and wording so "
                f"you can see whether the page is outdated."
-               + (f" 'Official-only' searches also surfaced {hijacked} hijacked pages planted on institutional domains."
+               + (f" Google's results also included {hijacked} hijacked pages: real sites serving spam injected from another host."
                   if hijacked else ""))
     out = {"run_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "engines": eng,
            "summary": {"headline": headline, "subline": subline, "split": split, "conflict": conflict,

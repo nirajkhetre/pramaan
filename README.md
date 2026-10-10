@@ -1,3 +1,5 @@
+<p align="center"><img src="static/logo.svg" width="96" alt="Pramaan seal"></p>
+
 # Pramaan · प्रमाण
 
 **Ask once. See where AI search disagrees, who it's quoting, and what the official page says.**
@@ -23,7 +25,7 @@ Run `python audit.py` to reproduce. Every response is recorded in [`replay/`](re
 **1. Google's AI Overview cited a hijacked university page as a source for Indian blood-sugar limits.**
 For both *"normal blood sugar 2 hours after a meal in India"* and *"normal fasting blood sugar for adults in India"*, one of the AI Overview's references was
 `etc.usf.edu/clipvr/376-a-panoramic-view-…?xml=data:gsf,<krpano><include url="//…">`.
-That is a University of South Florida page whose panorama viewer (krpano) has been abused to inject content from a spam host. A search restricted to *official* domains surfaced **12 more** such pages planted on an Indian institute's domain (`nsit.in`), all serving copied health advice. Pramaan labels them `hijacked` and never counts them as official.
+That is a University of South Florida page whose panorama viewer (krpano) has been abused to inject content from a spam host. Across the audit, Google results surfaced **12 hijacked pages**: 8 on an Indian institute's domain (`nsit.in`), 3 on `etc.usf.edu` and 1 elsewhere. The two hijacked sites pull from the same spam host, `live.updays.site`, and serve copied health advice. Pramaan labels them `hijacked` and never counts them as official.
 
 ![Google AI Overview's citations include the hijacked etc.usf.edu page; 9 of Bing Copilot's 11 citations are diagnostic labs and hospitals](docs/hijacked-citation.jpg)
 
@@ -46,6 +48,19 @@ The four engines gave the same figure on **18 of 19** questions. Yet only **28 o
 ![Audit scorecard across 19 questions](docs/audit.jpg)
 
 The idea came from reporting by [The Ken](https://the-ken.com/story/ai-cites-a-hospital-for-health-advice-but-the-hospital-uses-ai-to-write-the-advice-and-both-are-wrong/) (2026): Google's AI Overview gave Indians a wrong diabetes threshold that traced back to AI-written hospital SEO pages. Pramaan turns that one-off investigation into a check anyone can run on any question.
+
+### The interface: a hearing
+
+Pramaan treats every question as a hearing, so you can follow a number from claim to proof:
+
+- **Summon.** Results stream in over server-sent events, and each witness card flips as its engine answers. A live hearing takes 20–50 s; a recorded one replays instantly.
+- **Verdict stamp.** `CONTESTED`, `CHECK DATE`, `ON RECORD`, `UNVERIFIED` or `NO QUORUM`, inked onto the page.
+- **The measuring scale.** Every figure is pinned to one ruler with round tick marks, using a distinct shape per engine as well as colour, so a gap you can see is a real disagreement.
+- **The record.** The official page appears as a gazette clipping, with its quote, a link and its date. If a hijacked page turns up, a red tampering strip names the victim site and the spam host it pulls from.
+- **Testimony.** One card per engine shows its figure, its exact sentence with the number highlighted, the latest date it mentions, and every citation tagged by source type.
+- **Audit ledger.** The 19-question audit as tiles, a citation bar, a scorecard and the full matrix. Click any row to reopen that hearing.
+
+Light and dark themes, works on phones, respects reduced-motion settings, and has no build step.
 
 ---
 
@@ -130,7 +145,7 @@ It returns the verdict, each engine's figure and quote, the official page and it
 ## Project layout
 
 ```
-app.py            FastAPI app + /api/check, /api/status (OpenAPI docs at /docs)
+app.py            FastAPI app: /api/check, /api/check/stream (SSE), /api/status. OpenAPI docs at /docs
 audit.py          benchmark runner → audit/results.json
 mcp_server.py     MCP tool: cross_check(question)
 pramaan/serp.py   SerpApi client with recorder/replay and key redaction
@@ -139,7 +154,7 @@ pramaan/claims.py numeric claim extraction, ranges, units, dates
 pramaan/sources.py citation classification, incl. hijacked-page detection
 pramaan/check.py  orchestration (parallel calls) and verdict logic
 pramaan/llm.py    optional Gemini proposer with verbatim-quote guard
-static/           single-page UI (no build step)
+static/           single-page UI, logo, favicon and icon set (vanilla JS, no build step)
 questions.json    the 19 benchmark questions
 replay/           every recorded SerpApi response (key redacted)
 ```
