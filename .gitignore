@@ -3,4 +3,3 @@ __pycache__/
 *.pyc
 .venv/
 audit_log.txt
-.claude/

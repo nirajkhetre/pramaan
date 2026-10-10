@@ -115,8 +115,14 @@ python -m unittest        # 12 tests: units, ranges, per-quantity, dates, verdic
 
 `mcp_server.py` exposes a `cross_check(question)` tool, so an agent can check a number before it states it:
 
-```bash
-claude mcp add pramaan -- python /absolute/path/to/pramaan/mcp_server.py
+Add it to any MCP client (desktop assistants, IDE agents) as a stdio server:
+
+```json
+{
+  "mcpServers": {
+    "pramaan": { "command": "python", "args": ["/absolute/path/to/pramaan/mcp_server.py"] }
+  }
+}
 ```
 
 It returns the verdict, each engine's figure and quote, the official page and its date, and any hijacked results.
@@ -145,10 +151,6 @@ replay/           every recorded SerpApi response (key redacted)
 - Source classes for unknown domains use name hints (hospital, diagnostics, finance…). 53% of citations stay `other`, so the 32% "company" share is a lower bound.
 - Bing Copilot has no locale parameter, so its answers are not India-localised the way the others are.
 - 19 questions on one day is a snapshot, not a study. `audit.py --fresh` re-runs it any day.
-
-## AI tools used
-
-Built with Claude Code (Anthropic) as a pair programmer for research, code and documentation. All findings above were checked by hand against the recorded responses.
 
 ## License
 

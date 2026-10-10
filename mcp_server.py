@@ -1,6 +1,6 @@
 """Pramaan as an MCP tool, so an AI agent can cross-check a number before it states it.
 
-Claude Code:  claude mcp add pramaan -- python /path/to/pramaan/mcp_server.py
+Register it in any MCP client as a stdio server: command "python", args ["/path/to/pramaan/mcp_server.py"].
 """
 from mcp.server.mcpserver import MCPServer
 
