@@ -14,7 +14,7 @@ Indians now get numbers that matter (blood-sugar limits, interest rates, fines, 
 > SerpApi India Hackathon 2026 · **Track: Knowledge & Public Interest** (news and information literacy)
 > Runs locally · works **with no API key** in replay mode · no AI model at runtime
 
-![All four engines say 5.5%. The top official page says 5.25% but is dated before the 7 Oct hike, so Pramaan flags the page as probably outdated](docs/repo-rate.jpg)
+![All four engines merge at 5.5%; the official page lands at 5.25% and is 63 days older than the engines' source](docs/repo-rate.jpg)
 
 ---
 
@@ -43,24 +43,27 @@ The four engines gave the same figure on **18 of 19** questions. Yet only **28 o
 
 **4. On live prices, the engines split.** *"Price of 24-carat gold per 10 grams today"*: **₹1,51,420** (Google AI Mode, Brave), **₹1,46,110** (AI Overview), **₹1,39,250** (Bing Copilot). That is an 8% spread on the same day, for a figure people buy jewellery on.
 
-![Gold price split: three different figures from four engines on the same day](docs/gold-split.jpg)
+![Gold: the engines' lines fan out to three different prices](docs/gold-split.jpg)
 
 ![Audit scorecard across 19 questions](docs/audit.jpg)
 
 The idea came from reporting by [The Ken](https://the-ken.com/story/ai-cites-a-hospital-for-health-advice-but-the-hospital-uses-ai-to-write-the-advice-and-both-are-wrong/) (2026): Google's AI Overview gave Indians a wrong diabetes threshold that traced back to AI-written hospital SEO pages. Pramaan turns that one-off investigation into a check anyone can run on any question.
 
-### The interface: a hearing
+### The interface
 
-Pramaan treats every question as a hearing, so you can follow a number from claim to proof:
+![Pramaan home](docs/home.jpg)
 
-- **Summon.** Results stream in over server-sent events, and each witness card flips as its engine answers. A live hearing takes 20–50 s; a recorded one replays instantly.
-- **Verdict stamp.** `CONTESTED`, `CHECK DATE`, `ON RECORD`, `UNVERIFIED` or `NO QUORUM`, inked onto the page.
-- **The measuring scale.** Every figure is pinned to one ruler with round tick marks, using a distinct shape per engine as well as colour, so a gap you can see is a real disagreement.
-- **The record.** The official page appears as a gazette clipping, with its quote, a link and its date. If a hijacked page turns up, a red tampering strip names the victim site and the spam host it pulls from.
-- **Testimony.** One card per engine shows its figure, its exact sentence with the number highlighted, the latest date it mentions, and every citation tagged by source type.
-- **Audit ledger.** The 19-question audit as tiles, a citation bar, a scorecard and the full matrix. Click any row to reopen that hearing.
+Black and white only. Colour never decorates: it marks an engine, a verdict or a kind of source.
 
-Light and dark themes, works on phones, respects reduced-motion settings, and has no build step.
+- **Live lanes.** Results stream in over server-sent events. Each engine's lane locks the moment it answers, and its figure rolls in on an odometer.
+- **Verdict.** One huge word (`Contested`, `Check the date`, `On record`, `Unverified` or `No quorum`), then the figures side by side: what the engines say against what the official page says (`5.5% ≠ 5.25%`), plus the spread when the engines split.
+- **Where each answer lands.** A flow graph: every engine is a line that ends at the value it gave. Lines that agree merge into one node, lines that disagree fan out, and the official page arrives as a dashed green line with the gap marked in red.
+- **Which source is newer.** When the engines and the official page conflict, a timeline puts the official page's date against the date the engines cite ("63 days").
+- **Source squares.** Under each engine, every square is one source it cited, coloured by who published it: official, news, a company selling the product, a forum, or a hijacked page.
+- **Hijacked sources.** A diagram links each real site that was hijacked to the spam host injecting into it.
+- **Audit.** All 462 citations from the 19-question study as one waffle chart, engine-by-engine small multiples, and a question-by-engine matrix. Click a row to re-open that check.
+
+Typefaces are by Indian foundries: Eczar (Rosetta), Rajdhani (Indian Type Foundry) and Mukta (Ek Type). It works on phones, respects reduced-motion settings, and has no build step.
 
 ---
 

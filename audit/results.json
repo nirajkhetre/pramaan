@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-10T19:07:51+0530",
+ "run_at": "2026-10-10T19:19:53+0530",
  "engines": [
   {
    "engine": "google_ai_mode",
@@ -9,7 +9,16 @@
    "matched": 1,
    "differed": 4,
    "citations": 58,
-   "official_citations": 9
+   "official_citations": 9,
+   "kinds": {
+    "official": 9,
+    "news": 3,
+    "commercial": 19,
+    "forum": 0,
+    "reference": 1,
+    "hijacked": 0,
+    "other": 26
+   }
   },
   {
    "engine": "google_ai_overview",
@@ -19,7 +28,16 @@
    "matched": 2,
    "differed": 4,
    "citations": 96,
-   "official_citations": 6
+   "official_citations": 6,
+   "kinds": {
+    "official": 6,
+    "news": 8,
+    "commercial": 33,
+    "forum": 2,
+    "reference": 0,
+    "hijacked": 2,
+    "other": 45
+   }
   },
   {
    "engine": "bing_copilot",
@@ -29,7 +47,16 @@
    "matched": 2,
    "differed": 4,
    "citations": 198,
-   "official_citations": 7
+   "official_citations": 7,
+   "kinds": {
+    "official": 7,
+    "news": 12,
+    "commercial": 55,
+    "forum": 0,
+    "reference": 1,
+    "hijacked": 0,
+    "other": 123
+   }
   },
   {
    "engine": "brave_ai_mode",
@@ -39,7 +66,16 @@
    "matched": 2,
    "differed": 4,
    "citations": 110,
-   "official_citations": 6
+   "official_citations": 6,
+   "kinds": {
+    "official": 6,
+    "news": 7,
+    "commercial": 42,
+    "forum": 0,
+    "reference": 2,
+    "hijacked": 0,
+    "other": 53
+   }
   }
  ],
  "summary": {

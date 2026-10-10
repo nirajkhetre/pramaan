@@ -48,7 +48,8 @@ def main(fresh=False):
                     "matched": sum(a["match"] == "matches_official" for a in rows),
                     "differed": sum(a["match"] == "differs" for a in rows),
                     "citations": sum(len(a["references"]) for a in rows),
-                    "official_citations": sum(a["official_citations"] for a in rows)})
+                    "official_citations": sum(a["official_citations"] for a in rows),
+                    "kinds": {k: sum(a["citation_mix"][k] for a in rows) for k in sources.KINDS}})
 
     codes = [r["verdict"]["code"] for r in reports]
     comparable = len([c for c in codes if c != "insufficient"])
