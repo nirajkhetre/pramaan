@@ -90,8 +90,10 @@ function inkIn(root, delay = 900) {
   $$('[data-v]', root).forEach(countUp);
 }
 function swap(fn) {
-  if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.startViewTransition(fn);
-  else fn();
+  if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) return fn();
+  // A transition is skipped (not an error) when the tab is in the background.
+  const t = document.startViewTransition(fn);
+  t.ready.catch(() => {}); t.finished.catch(() => {});
 }
 
 // ---------- boot ----------
@@ -383,7 +385,7 @@ function renderLedger(a) {
       ${tile(1, `${s.agree}/${s.comparable}`, 'green', 'questions where every engine that answered gave the same figure', 'gavel')}
       ${tile(2, `${s.citation_pct.official}%`, 'red', `of ${cites} citations point to an official source`, 'official')}
       ${tile(3, `${s.citation_pct.commercial}%`, 'amber', 'come from companies selling the loan, policy, test or product', 'commercial')}
-      ${tile(4, `${s.hijacked}`, 'red', 'hijacked pages found in Google's results, with spam injected into real sites', 'hijacked', s.hijacked)}
+      ${tile(4, `${s.hijacked}`, 'red', 'hijacked pages found in Google’s results, with spam injected into real sites', 'hijacked', s.hijacked)}
     </div>
     <section class="sheet quote-board rise" style="--i:5"><div class="sec-title">${icon('reference')}<h3>Who the four engines cite, across every hearing</h3></div>
       <div class="qbar" style="height:26px">${KINDS.map((k) => `<i style="--i:0;width:${s.citation_pct[k]}%;background:var(--k-${k})" title="${KIND[k][0]} ${s.citation_pct[k]}%"></i>`).join('')}</div>
