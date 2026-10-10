@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pramaan · Ask once, see where AI search disagrees</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="mark">प्र</span>
+    <div>
+      <h1>Pramaan</h1>
+      <p>Ask once. See where AI search disagrees, and what the official source says.</p>
+    </div>
+  </div>
+  <div class="pills" id="pills"></div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="check">Check a question</button>
+  <button class="tab" data-tab="audit">Audit scorecard</button>
+</nav>
+
+<main>
+  <section id="tab-check">
+    <form id="ask" autocomplete="off">
+      <input id="q" name="q" placeholder="e.g. What is the normal blood sugar level 2 hours after a meal in India?" required minlength="5">
+      <button type="submit">Check</button>
+    </form>
+    <div id="samples" class="samples"></div>
+    <div id="out"></div>
+  </section>
+
+  <section id="tab-audit" hidden>
+    <div id="audit"></div>
+  </section>
+</main>
+
+<footer>
+  Answers come live from Google AI Mode, Google AI Overview, Bing Copilot and Brave AI Mode via
+  <a href="https://serpapi.com" target="_blank" rel="noopener">SerpApi</a>. Pramaan reports disagreement and
+  provenance. It does not give medical, tax or legal advice: always confirm on the official page.
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

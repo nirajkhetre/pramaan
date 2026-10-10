@@ -1,0 +1,86 @@
+[
+ {
+  "topic": "Health",
+  "q": "What is the normal blood sugar level 2 hours after a meal in India?",
+  "featured": true
+ },
+ {
+  "topic": "Health",
+  "q": "What is the normal fasting blood sugar level for adults in India?"
+ },
+ {
+  "topic": "Law",
+  "q": "What is the minimum age to get a driving licence for a car in India?"
+ },
+ {
+  "topic": "Savings",
+  "q": "What is the current PPF interest rate in India?",
+  "featured": true
+ },
+ {
+  "topic": "Savings",
+  "q": "What is the current Sukanya Samriddhi Yojana interest rate?"
+ },
+ {
+  "topic": "Savings",
+  "q": "What is the current RBI repo rate?",
+  "featured": true
+ },
+ {
+  "topic": "Tax",
+  "q": "What is the standard deduction for salaried employees under the new tax regime in India?"
+ },
+ {
+  "topic": "Tax",
+  "q": "Up to what income is there zero income tax under the new tax regime in India?",
+  "featured": true
+ },
+ {
+  "topic": "Tax",
+  "q": "What is the GST rate on restaurant food in India?",
+  "featured": true
+ },
+ {
+  "topic": "Law",
+  "q": "What is the fine for drunk driving in India for a first offence?",
+  "featured": true
+ },
+ {
+  "topic": "Law",
+  "q": "What is the fine for riding without a helmet in India?"
+ },
+ {
+  "topic": "Work",
+  "q": "What is the employee EPF contribution rate in India?"
+ },
+ {
+  "topic": "Work",
+  "q": "How many weeks of paid maternity leave are women entitled to in India?"
+ },
+ {
+  "topic": "Schemes",
+  "q": "What is the health cover amount per family under Ayushman Bharat PM-JAY?"
+ },
+ {
+  "topic": "Schemes",
+  "q": "What is the maximum loan amount under PM Mudra Yojana?"
+ },
+ {
+  "topic": "Prices",
+  "q": "What is the price of 24 carat gold per 10 grams in India today?",
+  "featured": true
+ },
+ {
+  "topic": "Prices",
+  "q": "What is the price of a 14.2 kg LPG cylinder in Delhi?"
+ },
+ {
+  "topic": "Prices",
+  "q": "What is the petrol price in Delhi today?"
+ },
+ {
+  "topic": "Money",
+  "q": "What is the UPI transaction limit per day?",
+  "featured": true
+ }
+]

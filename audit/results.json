@@ -1,0 +1,607 @@
+{
+ "run_at": "2026-10-10T17:48:03+0530",
+ "engines": [
+  {
+   "engine": "google_ai_mode",
+   "label": "Google AI Mode",
+   "answered": 19,
+   "numbered": 17,
+   "matched": 1,
+   "differed": 4,
+   "citations": 58,
+   "official_citations": 9
+  },
+  {
+   "engine": "google_ai_overview",
+   "label": "Google AI Overview",
+   "answered": 19,
+   "numbered": 19,
+   "matched": 2,
+   "differed": 4,
+   "citations": 96,
+   "official_citations": 6
+  },
+  {
+   "engine": "bing_copilot",
+   "label": "Bing Copilot",
+   "answered": 19,
+   "numbered": 19,
+   "matched": 2,
+   "differed": 4,
+   "citations": 198,
+   "official_citations": 7
+  },
+  {
+   "engine": "brave_ai_mode",
+   "label": "Brave AI Mode",
+   "answered": 19,
+   "numbered": 19,
+   "matched": 2,
+   "differed": 4,
+   "citations": 110,
+   "official_citations": 6
+  }
+ ],
+ "summary": {
+  "headline": "Four AI search engines agreed on the number for 18 of 19 everyday Indian questions. But only 6% of their 462 citations were official sources, while 32% were companies selling loans, insurance, lab tests or medicines. Google AI Overview cited a hijacked page (spam injected into a university site) as a source on 2 questions.",
+  "subline": "An official page in Google's results stated the engines' figure on 2 questions. On 4, the top official page gave a different figure. Pramaan shows its date and wording so you can see whether the page is outdated. 'Official-only' searches also surfaced 12 hijacked pages planted on institutional domains.",
+  "split": 1,
+  "conflict": 4,
+  "verified": 2,
+  "comparable": 19,
+  "agree": 18,
+  "citation_kinds": {
+   "official": 28,
+   "news": 30,
+   "commercial": 149,
+   "forum": 2,
+   "reference": 4,
+   "hijacked": 2,
+   "other": 247
+  },
+  "citation_pct": {
+   "official": 6,
+   "news": 6,
+   "commercial": 32,
+   "forum": 0,
+   "reference": 1,
+   "hijacked": 0,
+   "other": 53
+  },
+  "hijacked": 12
+ },
+ "questions": [
+  {
+   "question": "What is the normal blood sugar level 2 hours after a meal in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "140 mg/dL"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "140 mg/dL"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "140 mg/dL"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "140 mg/dL"
+    }
+   ]
+  },
+  {
+   "question": "What is the normal fasting blood sugar level for adults in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "100 mg/dL"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "70–99 mg/dL"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "70–99 mg/dL"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "70–99 mg/dL"
+    }
+   ]
+  },
+  {
+   "question": "What is the minimum age to get a driving licence for a car in India?",
+   "verdict": "consensus_conflict",
+   "official": "20 years",
+   "official_link": "https://www.htp.gov.in/driving_license.html",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "differs",
+     "label": "18 years"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "differs",
+     "label": "18 years"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "differs",
+     "label": "18 years"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "differs",
+     "label": "18 years"
+    }
+   ]
+  },
+  {
+   "question": "What is the current PPF interest rate in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "7.1%"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "7.1%"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "7.1%"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "7.1%"
+    }
+   ]
+  },
+  {
+   "question": "What is the current Sukanya Samriddhi Yojana interest rate?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "8.2%"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "8.2%"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "8.2%"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "8.2%"
+    }
+   ]
+  },
+  {
+   "question": "What is the current RBI repo rate?",
+   "verdict": "consensus_conflict",
+   "official": "5.25%",
+   "official_link": "https://ddnews.gov.in/en/rbi-keeps-repo-rate-unchanged-at-5-25-retains-neutral-policy-stance/",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "differs",
+     "label": "5.5%"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "differs",
+     "label": "5.5%"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "differs",
+     "label": "5.5%"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "differs",
+     "label": "5.5%"
+    }
+   ]
+  },
+  {
+   "question": "What is the standard deduction for salaried employees under the new tax regime in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹75,000"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹75,000"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹75,000"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹75,000"
+    }
+   ]
+  },
+  {
+   "question": "Up to what income is there zero income tax under the new tax regime in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹12 lakh"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹12 lakh"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹12 lakh"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹12 lakh"
+    }
+   ]
+  },
+  {
+   "question": "What is the GST rate on restaurant food in India?",
+   "verdict": "consensus_conflict",
+   "official": "12%",
+   "official_link": "https://www.dcmsme.gov.in/services-booklet.pdf",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "differs",
+     "label": "5%"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "differs",
+     "label": "5%"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "differs",
+     "label": "5%"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "differs",
+     "label": "5%"
+    }
+   ]
+  },
+  {
+   "question": "What is the fine for drunk driving in India for a first offence?",
+   "verdict": "consensus_conflict",
+   "official": "₹2,000",
+   "official_link": "https://faridabad.haryanapolice.gov.in/RR_DrinkingandDriving",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "differs",
+     "label": "₹10,000"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "differs",
+     "label": "₹10,000"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "differs",
+     "label": "₹10,000"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "differs",
+     "label": "₹10,000"
+    }
+   ]
+  },
+  {
+   "question": "What is the fine for riding without a helmet in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹1,000"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹1,000"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹1,000"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹1,000"
+    }
+   ]
+  },
+  {
+   "question": "What is the employee EPF contribution rate in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "12%"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "12%"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "12%"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "12%"
+    }
+   ]
+  },
+  {
+   "question": "How many weeks of paid maternity leave are women entitled to in India?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "26 weeks"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "26 weeks"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "26 weeks"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "26 weeks"
+    }
+   ]
+  },
+  {
+   "question": "What is the health cover amount per family under Ayushman Bharat PM-JAY?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹5 lakh"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹5 lakh"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹5 lakh"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹5 lakh"
+    }
+   ]
+  },
+  {
+   "question": "What is the maximum loan amount under PM Mudra Yojana?",
+   "verdict": "consensus_official",
+   "official": "₹20 lakh",
+   "official_link": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2069170&reg=3&lang=2",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "no_number",
+     "label": null
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "matches_official",
+     "label": "₹20 lakh"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "matches_official",
+     "label": "₹20 lakh"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "matches_official",
+     "label": "₹20 lakh"
+    }
+   ]
+  },
+  {
+   "question": "What is the price of 24 carat gold per 10 grams in India today?",
+   "verdict": "split",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹1,51,420"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹1,46,110"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹1,39,250"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹1,51,420"
+    }
+   ]
+  },
+  {
+   "question": "What is the price of a 14.2 kg LPG cylinder in Delhi?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "unchecked",
+     "label": "₹942"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹942"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹942"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹942"
+    }
+   ]
+  },
+  {
+   "question": "What is the petrol price in Delhi today?",
+   "verdict": "consensus",
+   "official": null,
+   "official_link": null,
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "no_number",
+     "label": null
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "unchecked",
+     "label": "₹102.12"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "unchecked",
+     "label": "₹102.12"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "unchecked",
+     "label": "₹102.12"
+    }
+   ]
+  },
+  {
+   "question": "What is the UPI transaction limit per day?",
+   "verdict": "consensus_official",
+   "official": "₹1 lakh",
+   "official_link": "https://ddnews.gov.in/en/npci-raises-daily-upi-payment-limit-on-p2m-transactions-to-%E2%82%B910-lakh/",
+   "cells": [
+    {
+     "engine": "google_ai_mode",
+     "match": "matches_official",
+     "label": "₹1 lakh"
+    },
+    {
+     "engine": "google_ai_overview",
+     "match": "matches_official",
+     "label": "₹1 lakh"
+    },
+    {
+     "engine": "bing_copilot",
+     "match": "matches_official",
+     "label": "₹1 lakh"
+    },
+    {
+     "engine": "brave_ai_mode",
+     "match": "matches_official",
+     "label": "₹1 lakh"
+    }
+   ]
+  }
+ ]
+}
