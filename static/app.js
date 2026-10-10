@@ -53,6 +53,7 @@ document.querySelectorAll('.tab').forEach((t) => t.onclick = () => {
 $('#ask').onsubmit = (e) => { e.preventDefault(); ask($('#q').value); };
 
 async function ask(q) {
+  $('#q').value = q;
   history.replaceState(null, '', '?q=' + encodeURIComponent(q));
   $('#out').innerHTML = `<div class="loading">Asking four AI search engines and the official web at once…
     <div class="dots"><span>Google AI Mode</span><span>AI Overview</span><span>Bing Copilot</span><span>Brave AI</span></div></div>`;
@@ -100,15 +101,18 @@ function numberLine(d) {
   const W = 1000, x = (v) => 40 + ((v - min) / (max - min)) * (W - 80);
   const unit = d.unit || pts[0]?.label;
   const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => min + t * (max - min));
-  // Points closer than a label's width climb a level so their labels never overlap.
+  // Each label takes the lowest row where its text span overlaps no other label.
   pts.sort((a, b) => a.v - b.v);
-  let prevX = -1e9, lvl = -1;
+  const rows = [];
   const dots = pts.map((p) => {
-    lvl = x(p.v) - prevX < 300 ? lvl + 1 : 0;
-    prevX = x(p.v);
+    const right = x(p.v) > W * 0.6;
+    const lw = 10 + 7.2 * `${p.label} · ${fmt(p.v, d.unit || '')}`.length;
+    const span = right ? [x(p.v) - lw, x(p.v) + 10] : [x(p.v) - 10, x(p.v) + lw];
+    let lvl = rows.findIndex((row) => row.every(([a, b]) => span[1] < a || span[0] > b));
+    if (lvl < 0) { rows.push([]); lvl = rows.length - 1; }
+    rows[lvl].push(span);
     const y = 100 - lvl * 24;
     const bar = p.lo !== undefined && p.lo !== null ? `<line x1="${x(p.lo)}" x2="${x(p.v)}" y1="${y}" y2="${y}" stroke="${p.c}" stroke-width="6" stroke-linecap="round" opacity=".45"/>` : '';
-    const right = x(p.v) > W * 0.6;
     return `${bar}<line x1="${x(p.v)}" x2="${x(p.v)}" y1="${y}" y2="120" stroke="${p.c}" stroke-dasharray="3 3"/>
       <circle cx="${x(p.v)}" cy="${y}" r="8" fill="${p.c}"/>
       <text x="${x(p.v) + (right ? -12 : 12)}" y="${y + 4}" text-anchor="${right ? 'end' : 'start'}">${esc(p.label)} · ${esc(fmt(p.v, d.unit || ''))}</text>`;

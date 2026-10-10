@@ -12,6 +12,8 @@ Indians now get numbers that matter (blood-sugar limits, interest rates, fines, 
 > SerpApi India Hackathon 2026 · **Track: Knowledge & Public Interest** (news and information literacy)
 > Runs locally · works **with no API key** in replay mode · no AI model at runtime
 
+![All four engines say 5.5%. The top official page says 5.25% but is dated before the 7 Oct hike, so Pramaan flags the page as probably outdated](docs/repo-rate.jpg)
+
 ---
 
 ## What we found (19 everyday questions, 4 engines, 10 Oct 2026)
@@ -22,6 +24,8 @@ Run `python audit.py` to reproduce. Every response is recorded in [`replay/`](re
 For both *"normal blood sugar 2 hours after a meal in India"* and *"normal fasting blood sugar for adults in India"*, one of the AI Overview's references was
 `etc.usf.edu/clipvr/376-a-panoramic-view-…?xml=data:gsf,<krpano><include url="//…">`.
 That is a University of South Florida page whose panorama viewer (krpano) has been abused to inject content from a spam host. A search restricted to *official* domains surfaced **12 more** such pages planted on an Indian institute's domain (`nsit.in`), all serving copied health advice. Pramaan labels them `hijacked` and never counts them as official.
+
+![Google AI Overview's citations include the hijacked etc.usf.edu page; 9 of Bing Copilot's 11 citations are diagnostic labs and hospitals](docs/hijacked-citation.jpg)
 
 **2. The engines agree, but rarely on official authority.**
 The four engines gave the same figure on **18 of 19** questions. Yet only **28 of 462 citations (6%)** were official sources. **149 (32%)** were companies that sell the thing being asked about: loan marketplaces, insurers, hospitals and diagnostic labs.
@@ -36,6 +40,10 @@ The four engines gave the same figure on **18 of 19** questions. Yet only **28 o
 | Minimum age for a car licence | 18 years | 20 years, a state transport site | Both. The 20-year rule is for *transport* vehicles, which the quote shows |
 
 **4. On live prices, the engines split.** *"Price of 24-carat gold per 10 grams today"*: **₹1,51,420** (Google AI Mode, Brave), **₹1,46,110** (AI Overview), **₹1,39,250** (Bing Copilot). That is an 8% spread on the same day, for a figure people buy jewellery on.
+
+![Gold price split: three different figures from four engines on the same day](docs/gold-split.jpg)
+
+![Audit scorecard across 19 questions](docs/audit.jpg)
 
 The idea came from reporting by [The Ken](https://the-ken.com/story/ai-cites-a-hospital-for-health-advice-but-the-hospital-uses-ai-to-write-the-advice-and-both-are-wrong/) (2026): Google's AI Overview gave Indians a wrong diabetes threshold that traced back to AI-written hospital SEO pages. Pramaan turns that one-off investigation into a check anyone can run on any question.
 
